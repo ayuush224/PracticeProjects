@@ -8,53 +8,93 @@
         body
         {
             padding: 20px;
-            background-color: aqua;
+            background-color: rgb(241, 235, 240);
         }
+        h1
+        {
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
     <form action="#">
-        <span>Enter your name: </span>
-        <input type="text" placeholder="Enter your name"><br>
+        <caption>
+            <h1>Student Registration Form</h1>
+        </caption>
+        <p class="para">Roll no.: </p>
+        <input type="number" placeholder="Enter Roll No" required><br>
 
-        <span>Enter Id: </span>
-        <input type="number" placeholder="Enter Your id"><br>
+        <p class="para">Student name: </p>
+        <input type="text" placeholder="First Name" required> - 
+        <input type="text" placeholder="Last Name"><br>
 
-        <span>Enter Password: </span>
-        <input type="password" placeholder="Enter password"><br>
+        <p class="para">Father's name: </p>
+        <input type="text" placeholder="Father's name" required><br>
 
-        <div>Select Year</div>
-        <label for="id1">
-            <input type="radio" value="1st" name="year" id="id1">First
-        </label><br>
+        <p class="para">Date of birth: </p>
+        <input type="date" placeholder="Date" required><br>
 
-        <label for="id2">
-            <input type="radio" value="2nd" name="year" id="id2">Second
-        </label><br>
+        <p class="para">Mobile no: </p>
+        <input type="number" placeholder="Mobile number" required><br>
 
-        <label for="id3">
-            <input type="radio" value="3rd" name="year" id="id3">Third
-        </label><br>
+        <p class="para">Email id: </p>
+        <input type="email" placeholder="Email"><br>
 
-        <label for="id4">
-            <input type="radio" value="4th" name="year" id="id4">Fourth
+        <p class="para">Password</p>
+        <input type="password" placeholder="Password" required><br>
+
+        <p>Gender: </p>
+        <label for="g1">
+            <input type="radio" value="Male" name="gender" id="g1">Male
+        </label>
+        <label for="g2">
+            <input type="radio" value="Female" name="gender" id="g2">Female
         </label>
 
-        <div>Select Hobbies</div>
-        <label for="c1">
-            <input type="checkbox" value="Coding" name="hobbie" id="c1">Coding
-        </label><br>
+        <p>Department</p>
+        <label for="d1">
+            <input type="checkbox" value="CSE" name="department" id="d1">CSE
+        </label>
 
-        <label for="c2">
-            <input type="checkbox" value="Cricket" name="hobbie" id="c2">Cricket
-        </label><br>
+        <label for="d2">
+            <input type="checkbox" value="IT" name="department" id="d2">IT
+        </label>
 
-        <label for="c3">
-            <input type="checkbox" value="Video Games" name="hobbie" id="c3">Video Games
-        </label><br>
+        <label for="d3">
+            <input type="checkbox" name="department" id="d3" value="ECE">ECE
+        </label>
 
-        <button><a href="/form.html">Submit</a></button>
+        <label for="d4">
+            <input type="checkbox" name="department" id="d4" value="Civil">Civil
+        </label>
 
+        <label for="d5">
+            <input type="checkbox" name="department" id="d5" value="Mech">Mech
+        </label>
+
+        <label for="course">
+            <p>Course: </p>
+        </label>
+        <select name="course" id="course">
+            <option value="Null">Select</option>
+            <option value="Full Stack">Full Stack</option>
+            <option value="AI & ML">AI ML</option>
+            <option value="Data Science">Data Science</option>
+        </select>
+
+        <label for="file_upload">
+            <p>Student Photo: </p>
+        </label>
+        <input type="file" id="file_upload" required>
+
+        <p>City: </p>
+        <input type="text" placeholder="Enter City" required>
+
+        <p>Address: </p>
+        <textarea rows="4" cols="20"></textarea><br>
+
+        <input type="submit" placeholder="Submit">
     </form>
 </body>
 </html>
