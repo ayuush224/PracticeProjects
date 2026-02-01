@@ -1,0 +1,89 @@
+body
+{
+    background-color: rgb(212, 219, 224);
+    margin: 40px 40px 0px 40px;
+}
+
+h1
+{
+    font-size: 3.5rem;
+}
+
+#creative
+{
+    color: rgb(34, 34, 210);
+}
+
+.card
+{
+    margin-top: 10vh;
+    width: 40vw;
+    height: auto;
+    text-align: justify;
+}
+
+.left_card
+{
+    float: left;
+}
+
+.right_card
+{
+    float: right;
+}
+
+.tile_image
+{
+    height: 20vh;
+    margin-right: 5vw;
+    float: left;
+}
+
+footer
+{
+    clear: both;
+    color: rgb(47, 47, 182);
+    text-align: right;
+    margin-top: 65vh;
+    margin-right: 4vw;
+}
+
+@media (max-width: 650px){
+    body
+    {
+        margin: 0px;
+    }
+
+    #logo
+    {
+        margin: 2vh 0 0 3vw;
+        width: 20vw;
+    }
+
+    h1
+    {
+        text-align: center;
+        font-size: 2rem;
+    }
+    .tile_image
+    {
+        width: 100%;
+        height: 30vh;
+    }
+    .card
+    {
+        width: 90vw;
+        display: block;
+        float: none;
+        margin: auto;
+        text-align: center;
+    }
+    h2
+    {
+        font-size: 1.5rem;
+    }
+    footer{
+        margin: 0;
+        margin-right: 5vw;
+    }
+}
