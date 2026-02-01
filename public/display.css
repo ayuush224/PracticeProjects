@@ -1,0 +1,35 @@
+body
+{
+  background-color: rgb(192, 202, 234);
+}
+
+.box
+{
+  display: inline-block;
+  height: 40vh;
+  width: 25vw;
+  margin: 5px;
+  text-align: center;
+}
+div.box > p
+{
+  color: white;
+  display: inline;
+  font-size: 2em;
+  font-weight: lighter;
+}
+
+#red
+{
+  background-color: red;
+}
+
+#green
+{
+  background-color: green;
+}
+
+#blue
+{
+  background-color: blue;
+}

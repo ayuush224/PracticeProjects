@@ -1,0 +1,48 @@
+.box
+{
+    display: inline-block;
+    height: auto;
+    width: 43vw;
+    text-align: justify;
+}
+h2
+{
+    margin: 0;
+}
+
+.paragraph
+{
+    display: inline;
+}
+
+p
+{
+    display: inline;
+}
+
+.box > img
+{
+    height: 60%;
+    width: 40%;
+    float: left;
+}
+
+#dog
+{
+    float: right;
+    background-color: orange;
+}
+
+#cat
+{
+    float: left;
+    background-color: skyblue;
+}
+
+footer
+{
+    margin: 0;
+    text-align: center;
+    background-color: rgb(14, 182, 249);
+    clear: both;
+}
