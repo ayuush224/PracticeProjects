@@ -1,0 +1,40 @@
+body
+{
+    background-color: #528edd;
+    font-size: 18px;
+    color: white;
+}
+
+#heading
+{
+    font-size: 50px;
+}
+
+#red
+{
+    color: red;
+    font-weight: normal;
+}
+
+#size
+{
+    font-size: 4em;
+}
+
+#weight
+{
+    font-weight: bold;
+}
+
+#family
+{
+    font-family: "Story Script", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+#align
+{
+    text-align: right;
+    font-size: 2rem;
+}

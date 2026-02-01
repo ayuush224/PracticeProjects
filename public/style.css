@@ -1,0 +1,35 @@
+body
+{
+    text-align: center;
+    background-color: rgb(240, 249, 250);
+}
+
+ol
+{
+    list-style-position: inside;
+}
+
+li
+{
+    color: red;
+}
+
+#id1
+{
+    color: green;
+}
+
+li[draggable]
+{
+    color: blue;
+}
+
+.note
+{
+    color: black;
+}
+
+*
+{
+    color: black;
+}
