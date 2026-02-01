@@ -1,0 +1,36 @@
+body
+{
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#heading
+{
+    color: white;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+#container
+{
+    width: 80vw;
+    border: 5px solid #E2E8CE;
+    height: 70vh;
+    margin: 2vh 10vw;
+    padding: 5vh 0vw;
+}
+
+#image
+{
+    width: 100%;
+    height: 100%;
+}
+
+#footer
+{
+    color: white;
+    font-size: larger;
+    font-weight: normal;
+    text-align: center;
+}

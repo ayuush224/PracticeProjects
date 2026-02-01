@@ -20,7 +20,7 @@ body
 #yellow
 {
     background-color: rgb(215, 215, 12);
-    border: 5px solid black;
+    border: solid black;
     border-width: 20px 10px;
     margin-left: 260px;
 }
