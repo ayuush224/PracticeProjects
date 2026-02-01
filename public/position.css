@@ -1,19 +1,19 @@
 #blue
 {
     background-color: blue;
-    height: 40vh;
+    height: 60vh;
     width: 70vw;
     position: relative;
     left: 15vw;
-    top: 30vh;
+    top: 20vh;
 }
 
 #red{
     background-color: red;
-    width: 30vw;
-    height: 30vh;
+    width: 27vw;
+    height: 40vh;
     position: absolute;
-    left: 35vw;
-    top: 18vh;
-    border-radius: 100%;
+    left: 50%;
+    top: 50%;
+    border-radius: 80%;
 }
