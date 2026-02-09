@@ -1,0 +1,53 @@
+body
+{
+    margin: 0;
+    padding: 0;
+}
+
+.container
+{
+    border: 5px solid yellow;
+    display: inline-flex;
+    width: 50vw;
+    height: 50vh;
+    flex-direction: row-reverse;
+}
+
+div > div
+{
+    height: 10vh;
+    color: white;
+    font-size: larger;
+    flex-basis: 100%;
+    text-align: center;
+}
+
+.red
+{
+    background-color: red;
+}
+
+.orange
+{
+    background-color: orange;
+}
+
+.yellow
+{
+    background-color: rgb(225, 225, 98);
+}
+
+.green
+{
+    background-color: rgb(66, 126, 66);
+}
+
+.blue
+{
+    background-color: rgb(35, 35, 82);
+}
+
+.indigo
+{
+    background-color: indigo;
+}
