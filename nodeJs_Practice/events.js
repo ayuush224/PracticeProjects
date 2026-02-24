@@ -40,11 +40,15 @@ let summary = () => {
     fs.writeFileSync(filePath, data, 'utf-8');
 }
 
+//it is like defining a function, which get called
+//on a particular event
 emitter.on('login', login);
 emitter.on('logout', logout);
 emitter.on('purchase', purchase);
 emitter.on('profileUpdate', profileUpdate);
 
+
+//it is like calling a function
 emitter.emit('login', {name: "ayush"});
 emitter.emit('logout', {name: "ayush"});
 emitter.emit('purchase', {quantity: 10});

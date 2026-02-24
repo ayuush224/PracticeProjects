@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,10 +11,14 @@
     "type": "git",
     "url": "git+https://github.com/ayuush224/PracticeProjects.git"
   },
-  "author": "",
+  "author": "ayush",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ayuush224/PracticeProjects/issues"
   },
-  "homepage": "https://github.com/ayuush224/PracticeProjects#readme"
+  "homepage": "https://github.com/ayuush224/PracticeProjects#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
 }
