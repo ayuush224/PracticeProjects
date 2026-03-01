@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin : 0px;
+            padding : 0px;
+            background-color : #212121;
+            color : #eee;
+            font-size : 1.5rem;
+        }
+
+        .navbar{
+            background-color : #eee;
+            display : flex;
+            justify-content : center;
+            flex-wrap : wrap;
+            padding : 0.5rem;
+            border-bottom :solid 2px #aaa;
+            gap : 0.5rem;
+            font-size : 1rem;
+        }
+
+        .navbar > a{
+            text-decoration : none;
+            min-width : 9rem;
+            border : solid 1px rgb(21,21,21);
+            padding : 0.5rem;
+            color : #212121;
+            text-align : center;
+            border-radius : 0.5rem;
+        }
+
+        .form{
+            margin : 50px auto 40px;
+            width : 25rem;
+        }
+
+        .box{
+            width : 80%;
+            margin-top : 50px;
+        }
+        #calci{
+            margin-left : 4.5rem;
+            padding : 0.5rem;
+            min-width : 9rem;
+        }
+        .result{
+            width : 100%;
+            margin : 2rem auto 2rem;
+            color : yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Next Project</a>
+    </div>
+
+    <form class="form">
+        <h1>BMI Calculator</h1>
+        <p>Height in CM:
+            <input type="text" id="height">
+        </p>
+        <p>Weigth in KG:
+            <input type="text" id="weight">
+        </p>
+        <div class="box">
+            <div class="result"></div>
+
+            <button type="submit" id="calci">Calculate</button>
+
+            <h2>BMI Weight Guide</h2>
+            <p>Under Weigth = Less than 18.6</p>
+            <p>Normal Range = 18.6 and 24.4</p>
+            <p>OverWeight = Greater than 24.9</p>
+        </div>
+    </form>
+
+    <script>
+        const form = document.querySelector('form');
+        let result = document.querySelector(".result");
+
+        form.addEventListener('submit' , (e) => {
+            e.preventDefault();
+            
+            let height = parseInt(document.querySelector('#height').value);
+            let weight = parseInt(document.querySelector('#weight').value);
+            let node = document.createElement('span');
+
+            if(height === '' || height < 0 || isNaN(height)){
+                node.appendChild(document.createTextNode('Please Enter valid Height'));
+            }
+            else if(weight == '' || weight < 0 || isNaN(weight)){
+                node.appendChild(document.createTextNode('Please Enter valid Weight'));
+            }
+            else{
+                let value = (weight / ((height * height) / 10000)).toFixed(2);
+                node.appendChild(document.createTextNode(`BMI = ${value}`));
+                node.appendChild(document.createElement('br'));
+                if(value < 18.6){
+                    node.appendChild(document.createTextNode("Result : Under Weight"));
+                }
+                else if(value < 24.4){
+                    node.appendChild(document.createTextNode("Result : Normal Range"));
+                }
+                else{
+                    node.appendChild(document.createTextNode("Result : Over Weight"));
+                }
+            }
+            result.appendChild(node);
+        })
+
+
+        // let height = document.querySelector("#height");
+        // let weight = document.querySelector("#weight");
+        // let result = document.querySelector(".result");
+        // let calci = document.querySelector("#calculate");
+
+        // let calculate = () => {
+        //     let ht = height.value;
+        //     let wt = weight.value;
+        //     if(!ht || !wt){
+        //         window.alert("Please Enter Height and Weight");
+        //         return;
+        //     }
+        //     let value = (wt / ((ht * ht) / 10000)).toFixed(2);
+        //     const node = document.createElement('span');
+        //     node.appendChild(document.createTextNode(`BMI = ${value}`));
+        //     node.style.color = 'yellow';
+        //     result.appendChild(node);
+        // }
+    </script>
+</body>
+</html>
