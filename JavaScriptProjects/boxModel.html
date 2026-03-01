@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+    <style>
+        body{
+            background-color : #212121;
+            margin : 0px;
+        }
+        .container{
+            display : flex;
+            flex-wrap : wrap;
+            padding : 2rem;
+            width : 80%;
+            margin : 5rem auto 10px;
+            border : solid 1px #6b6666;
+        }
+
+        .box{
+            height : 200px;
+            width : 200px;
+            background-color : #8a8989;
+            margin : 0.5rem;
+        }
+
+        .nav{
+            background-color: #acaaaa;
+            display : flex;
+            justify-content : center;
+            padding : 0.6rem;
+            border-bottom : solid 2px rgb(233, 236, 237);
+            gap : 1rem;
+        }
+        
+        .nav > a{
+            min-width : 9rem;
+            text-decoration : none;
+            border : solid 1px rgb(21, 21, 21);
+            background-color : #d4d4d4;
+            border-radius : 0.5rem;
+            padding : 0.5rem;
+            text-align : center;
+            color : #212121;
+        }
+
+        h2{
+            color : #eee;
+            text-align:center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+    </div>
+    <box class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </box>
+    <h2>This is a playground</h2>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin : 0px;
+            font-family :'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .navbar{
+            background-color:#eee;
+            display : flex;
+            justify-content : center;
+            flex-wrap : wrap;
+            align-items : center;
+            padding : 0.5rem;
+            gap : 0.5rem;
+            border-bottom : solid 1px #aaa;
+        }
+
+        nav a{
+            display : inline-block;
+            min-width : 8rem;
+            border : solid 1px rgb(22, 22, 22);
+            padding : 0.5rem;
+            text-decoration : none;
+            text-align : center;
+            color : #1b1b1b;
+            background-color : #d4d4d4;
+            border-radius : 0.6rem;
+        }
+
+        span{
+            display : block;
+        }
+
+        .main{
+            margin : 100px auto 100px;
+            width : 80%;
+            text-align : center;
+        }
+
+        .button{
+            height : 100px;
+            width : 100px;
+            border : 2px solid black;
+            display : inline-block;
+        }
+
+        #grey{
+            background-color :grey;
+        }
+
+        #blue{
+            background-color :blue;
+        }
+
+        #yellow{
+            background-color : yellow;
+        }
+
+        #white{
+            background-color: white;
+        }
+
+        footer{
+            background-color: #eee;
+            position: fixed;
+            width: 100%;
+            bottom: 0px;
+            color: #1b1b1b;
+            text-align : center;
+            padding : 1rem;
+            border-top : solid 1px #aaa;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Next Project</a>
+        </nav>
+    </header>
+
+    <div class="main">
+        <h1>Color Scheme Switcher</h1>
+        <br>
+        <span class="button" id="grey"></span>
+        <span class="button" id="white"></span>
+        <span class="button" id="blue"></span>
+        <span class="button" id="yellow"></span>
+        <br><br>
+        <h2>
+          Try clicking on one of the colors above
+          <span>to change the background color of this page!</span>
+        </h2>
+      </div>
+
+    <footer class="footer">
+        <p>@ Color Switcher</p>
+    </footer>
+</body>
+    <script src="./project1.js"></script>
+</html>

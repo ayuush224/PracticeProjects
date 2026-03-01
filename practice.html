@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My script</title>
+    <style>
+        body{
+            background: #212121;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <!-- This is a comment -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thrusday</div>
+    </div>
+
+    <!-- <ul class="language">
+        <li>Javascript</li>
+    </ul> -->
+
+    <script>
+
+        const parent = document.querySelector(".parent");
+
+        const childNodes = parent.childNodes;
+        console.log(childNodes);
+
+        const newDay = document.createElement("li");
+        newDay.appendChild(document.createTextNode("Friday"));
+
+        const child = parent.children;
+        
+        console.log(child);
+        
+        child[0].remove();
+
+        console.log(child);
+        console.log(childNodes);
+        // parent.childNodes.forEach((nodes) => {
+        //     if(nodes instanceof HTMLElement){
+        //         nodes.style.color = "red";
+        //     }
+        // });
+
+        // console.log(parent.firstElementChild);
+        // console.log(parent.lastElementChild);
+
+        // const dayOne = document.querySelector(".day");
+        // console.log(dayOne.parentElement);
+
+
+        /*
+        parent.firstElementChild;
+        parent.lastElementChild;
+        parent.childNodes;
+        
+        child.nextElementSibling;
+        child.previousElementSibling;
+        */
+
+        /*
+        let createDiv = (txt, bg, clName) => {
+            let div = document.createElement("div");
+            div.setAttribute("class", clName);
+
+            let class_name = div.getAttribute("class");
+            console.log(class_name);
+
+            if(class_name === "dark"){
+                console.log("Dark");
+            }
+            else{
+                console.log("Blue");
+            }
+            
+            div.style.backgroundColor = bg;
+            div.style.padding = "10px";
+
+            const text = document.createTextNode(txt);
+            div.appendChild(text);
+
+            return div;
+        }
+
+        let div = createDiv("Hiii", "red", "box main");
+        const body = document.querySelector('body');
+        body.appendChild(div);
+
+        const box = document.querySelector(".box");
+        box.textContent = "Hello";
+
+        const main = document.querySelector(".main");
+        main.innerText = "What are you doing";
+        */
+
+        // function addLanguage(langName){
+        //     const listItem = document.createElement('li');
+        //     listItem.appendChild(document.createTextNode(langName));
+        //     document.querySelector(".language").appendChild(listItem);
+        // }
+
+        // function addOptiLanguage(langName){
+        //     const li = document.createElement("li");
+        //     li.innerHTML = langName;
+
+        //     document.querySelector(".language").appendChild(li);
+        // }
+
+        // addLanguage("Java");
+        // addLanguage("C++");
+        // addLanguage("Python");
+        // addOptiLanguage("ruby");
+
+        // const ul = document.querySelector(".language");
+        // console.log(ul.firstElementChild);
+
+    </script>
+</body>
+</html>
