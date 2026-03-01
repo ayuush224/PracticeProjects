@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing game</title>
+    <style>
+        body{
+            margin : 0px;
+            background-color : #212121;
+            color : #eee;
+        }
+
+        .navbar{
+            background-color : #eee;
+            padding : 0.5rem;
+            border-bottom : solid 1px #aaa;
+            display : flex;
+            justify-content : center;
+            align-items : center;
+            flex-wrap : wrap;
+            gap : 0.5rem;
+        }
+
+        .navbar > a{
+            text-decoration : none;
+            min-width : 9rem;
+            background-color : #d4d4d4;
+            color : #212121;
+            padding : 0.5rem;
+            border : solid 1px rgb(21,21,21);
+            border-radius : 0.5rem;
+            text-align : center;
+        }
+
+        .main{
+            width : 99.8%;
+            margin : 0px auto 0px;
+            display : flex;
+            flex-direction : column;
+            align-items: center;
+            gap : 1rem;
+            padding-top : 2rem;
+            border : solid 1px #eee;
+        }
+
+        .heading{
+            background-color : black;
+            margin : 0px;
+        }
+        
+        .heading > h1{
+            text-align : center;
+            padding : 0.5rem;
+            margin : 0px;
+        }
+
+        .content{
+            font-size : 3rem;
+        }
+
+        #input{
+            height : 2rem;
+            width : 10rem;
+            border-radius : 0.5rem;
+            border : solid 4px #aaa;
+            flex-grow : 5;
+        }
+
+        .submit_button{
+            border-radius : 0.5rem;
+            background-color : black;
+            padding : 0.5rem;
+            text-align : center;
+            width : 10rem;
+            border : solid 2px #aaa;
+        }
+
+        .guessBox{
+            display : flex;
+            align-items : center;
+        }
+
+        .box{
+            display : flex;
+            border-radius : 0.5rem;
+            border : solid 2px #aaa;
+            height : 2rem;
+            align-items : center;
+        }
+
+        .footer{
+            text-align : center;
+            padding : 0.8rem;
+            background-color :#eee;
+            border-top : #aaa;
+            position : fixed;
+            bottom : 0px;
+            width : 100%;
+            color : #212121;
+        }
+
+        main > span{
+            display : block;
+        }
+
+        .glist{
+            border-right: 2px solid #aaa;
+            padding : 0.2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Next Calculator</a>
+    </div>
+    
+    <div class="heading"><h1>Number Guessing Game</h1></div>
+
+    <div class="main">
+        
+        <span>Try and guess a random number between 1 and 100</span>
+        
+        <span>You have 10 apptempts to guess the right number.</span>
+        
+        <span class="content">Guess a Number</span>
+        
+        <input type="text" id="input">
+        
+        <div class="submit_button">Submit Guess</div>
+
+        <div class="result"></div>
+
+        <div class="guessBox"><span>Previous Guesses</span><div class="box"></div></div>
+
+        <p>Guess Remaining : <span class="count">10</span></p>
+    </div>
+
+    <div class="footer">
+        <span>Number guessing game</span>
+    </div>
+</body>
+    <script>
+        let luckyNumber = () => {
+            let num = Math.round((Math.random() * 100) + 1);
+            return num;
+        }
+
+        let input = document.querySelector('#input');
+        let submit = document.querySelector('.submit_button');
+        let prevBox = document.querySelector('.box');
+        let result = document.querySelector('.result');
+        let gList = document.querySelector('.box');
+        let chance = document.querySelector('.count');
+
+
+        submit.addEventListener('click', (e) => {
+            let num = parseInt(input.value);
+            let l_n = luckyNumber();
+            
+            result.textContent = "";
+            let guessed = document.createElement('p');
+            
+            guessed.appendChild(document.createTextNode(num));
+            guessed.setAttribute('class', 'glist')
+
+            if(num === '' || num < 1 || num > 100 || isNaN(num)){
+                result.appendChild(document.createTextNode("Please Enter a valid Number!"));
+            }
+            else if(l_n == num){
+                result.appendChild(document.createTextNode("Congrats You Guessed it right!"));
+            }
+            else{
+                result.appendChild(document.createTextNode(`Oops! you lost a chance Lucky Number was ${l_n}`));
+                result.appendChild(document.createElement('br'));
+                let remChance = parseInt(chance.textContent) - 1;
+                
+                if(remChance == 0){
+                    result.textContent = "Better Luck Next Time";
+                    gList.textContent = "";
+                    chance.textContent = 10;
+                }
+                else{
+                    gList.appendChild(guessed);
+                    chance.textContent = remChance;
+                }
+            }
+        })
+    </script>
+</html>

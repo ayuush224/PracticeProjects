@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+</head>
+    <style>
+        body{
+            margin : 0px;
+            background-color : #212121;
+            font-size : 1.2rem;
+        }
+
+        .navbar{
+            background-color : #eee;
+            border-bottom :solid 3px #86aaec;
+            display : flex;
+            gap : 0.5rem;
+            justify-content : center;
+            align-items : center;
+            flex-wrap : wrap;
+            padding : 0.5rem;
+        }
+
+        .navbar > a{
+            text-decoration : none;
+            border : solid 1px #212121;
+            border-radius : 0.5rem;
+            padding : 0.5rem;
+            color : #212121;
+            min-width : 9rem;
+            text-align : center;
+        }
+
+        .footer{
+            position : fixed;
+            bottom : 0px;
+            width : 100%;
+            border-top : solid 3px #86aaec;
+            background-color : #eee;
+            padding : 0.8rem;
+            text-align : center;
+        }
+
+        .center{
+            color : #eee;
+            margin : 40vh auto 0px;
+            width : 20%;
+            text-align : center;
+        }
+
+        .clock{
+            background-color : orange;
+            border-radius : 0.5rem;
+            padding : 0.6rem;
+            text-align : center;
+            font-size : 1.5rem;
+        }
+    </style>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Next Project</a>
+    </div>
+
+    <div class="center">
+        <div class="banner"><span>Your Local Time</span></div>
+        <div class="clock"></div>
+    </div>
+
+    <div class="footer"><span>@ Digital Clock</span></div>
+</body>
+    <script>
+        setInterval(()=>{
+            let clock = document.querySelector('.clock');
+            let date = new Date();
+            clock.textContent = date.toLocaleTimeString();
+        }, 1000);
+    </script>
+</html>
