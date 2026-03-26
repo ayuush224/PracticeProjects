@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        body{
+            background-color: #212121;
+            color: yellow;
+        }
+        input, button{
+            background-color: #212121;
+            border: solid 2px yellow;
+            text-align: center;
+            border-radius: 0.5rem;
+            height: 1.5rem;
+            color: yellow;
+        }
+
+        form{
+            width: 30%;
+            margin: 30vh auto;
+            display: flex;
+            gap: 1rem;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button{
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+<body>
+    <form action="/delete" method="post">
+        <div class="content">
+            <label for="name">Enter Your name</label><br>
+            <input type="text" name="name" id="name"><br>
+        </div>
+
+        <div class="content">
+            <label for="email">Enter Your Email</label><br>
+            <input type="text" name="email" id="email"><br>
+        </div>
+
+        <div class="content">
+            <label for="age">Enter Your Age</label><br>
+            <input type="text" name="age" id="age"><br>
+        </div>
+
+        <div class="content">
+             <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>

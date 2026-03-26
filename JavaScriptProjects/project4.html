@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess a Number</title>
+    <style>
+        body{
+            margin : 0px;
+            background-color : #212121;
+            color : #eee;
+        }
+        .navbar{
+            background-color :#eee;
+            border-bottom : #aaa 5px solid;
+            display : flex;
+            flex-wrap : wrap;
+            padding : 0.5rem;
+            justify-content : center;
+            align-items : center;
+            gap : 0.5rem;
+        }
+        .navbar > a{
+            text-decoration : none;
+            color : #212121;
+            border : solid 1px #212121;
+            border-radius : 0.5rem;
+            min-width : 9rem;
+            padding : 0.5rem;
+            text-align : center;
+        }
+
+        h1{
+            background-color : black;
+            margin: 0px;
+            text-align : center;
+            padding : 0.8rem;
+        }
+
+        .main{
+            text-align : center;
+            border : solid 1px #aaa;
+            display : flex;
+            flex-direction : column;
+            gap : 0.5rem;
+        }
+
+        span{
+            display : inline-block;
+        }
+
+        .form{
+            display : flex;
+            flex-direction : column;
+            gap: 0.6rem;
+            margin : 0px auto 0px;
+        }
+
+        #guess{
+            font-size : 2rem;
+            margin-bottom : 1rem;
+        }
+
+        .guessField{
+            height : 2rem;
+            border : solid 0.4rem #aaa;
+            border-radius : 0.5rem;
+            text-align : center;
+        }
+
+        .guessSubmit{
+            height : 2.4rem;
+            border : 3px solid black;
+            width : 10rem;
+            border-radius : 0.6rem;
+            margin : 0px auto;
+            background-color : black;
+            color : #eee;
+            font-size : 1.1rem;
+        }
+
+        .resultParas{
+            display : flex;
+            margin : 0px auto;
+            flex-direction : column;
+            align-content : center;
+        }
+
+        .guesses{
+            background-color : #aaa;
+            height : 1.5rem;
+            border : 0.2rem solid #aaa;
+        }
+        .para{
+            display : flex;
+            align-items : center;
+            margin : 0px auto;
+        }
+
+        .footer{
+            background-color : #eee;
+            color : #212121;
+            text-align : center;
+            position : fixed;
+            width : 100%;
+            bottom : 0px;
+            border-top : #aaa 5px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">Next Project</a>
+    </div>
+
+    <div class="main">
+        <h1>Number guessing game</h1>
+        <div class="content">
+            <p>Try and guess a random number between 1 and 100</p>
+            <p>You have 10 attempts to guess the right number</p>
+        </div>
+
+        <form class="form">
+            <label for="guessField" id="guess">Guess a Number</label>
+            <input type="text" id="guessField" class="guessField"><br>
+            <input type="submit" value="Submit guess" id="submit" class="guessSubmit"><br>
+        </form>
+
+        <div class="resultParas">
+            <div class="para"><p>Previous Guesses :</p><span class="guesses"></span></div>
+            <div class="para">Guesses Remaining : <span class="lastResult">10</span></div>
+            <p class="lowOrHi"></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>@ Number guessing game</p>
+    </div>
+</body>
+<script src="./guess.js"></script>
+</html>

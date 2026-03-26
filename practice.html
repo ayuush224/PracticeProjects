@@ -3,123 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My script</title>
-    <style>
-        body{
-            background: #212121;
-            color: aliceblue;
-        }
-    </style>
+    <title>Document</title>
 </head>
+<style>
+
+    body{
+        background-color: #212121;
+    }
+    .grid{
+        display: grid;
+        background-color: #aaa;
+        width: 60vw;
+        margin: 20rem auto;
+        row-gap:  0.5rem;
+        padding: 0.5rem;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+        border-radius: 1rem;
+        transition: all 2s linear 0.0s;
+    }
+    
+    .box{
+        height: 5rem;
+        width: 100%;
+        background-color: #212121;
+        border-radius:1rem 6rem;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        transition: all 1s linear 0.0s;
+    }
+
+    .box:hover{
+        background-color: #eee;
+        /* transform: translate(20rem);
+        transform: scale(2);
+        transform: rotateX(20deg); */
+    }
+
+    #six{
+        height: 100%;
+        width: 99%;
+        grid-area: 2 / 1 / 4 / 3;
+    }
+</style>
 <body>
-    <div class="parent">
-        <!-- This is a comment -->
-        <div class="day">Monday</div>
-        <div class="day">Tuesday</div>
-        <div class="day">Wednesday</div>
-        <div class="day">Thrusday</div>
+    <div class="grid">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box" id="six"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
     </div>
-
-    <!-- <ul class="language">
-        <li>Javascript</li>
-    </ul> -->
-
-    <script>
-
-        const parent = document.querySelector(".parent");
-
-        const childNodes = parent.childNodes;
-        console.log(childNodes);
-
-        const newDay = document.createElement("li");
-        newDay.appendChild(document.createTextNode("Friday"));
-
-        const child = parent.children;
-        
-        console.log(child);
-        
-        child[0].remove();
-
-        console.log(child);
-        console.log(childNodes);
-        // parent.childNodes.forEach((nodes) => {
-        //     if(nodes instanceof HTMLElement){
-        //         nodes.style.color = "red";
-        //     }
-        // });
-
-        // console.log(parent.firstElementChild);
-        // console.log(parent.lastElementChild);
-
-        // const dayOne = document.querySelector(".day");
-        // console.log(dayOne.parentElement);
-
-
-        /*
-        parent.firstElementChild;
-        parent.lastElementChild;
-        parent.childNodes;
-        
-        child.nextElementSibling;
-        child.previousElementSibling;
-        */
-
-        /*
-        let createDiv = (txt, bg, clName) => {
-            let div = document.createElement("div");
-            div.setAttribute("class", clName);
-
-            let class_name = div.getAttribute("class");
-            console.log(class_name);
-
-            if(class_name === "dark"){
-                console.log("Dark");
-            }
-            else{
-                console.log("Blue");
-            }
-            
-            div.style.backgroundColor = bg;
-            div.style.padding = "10px";
-
-            const text = document.createTextNode(txt);
-            div.appendChild(text);
-
-            return div;
-        }
-
-        let div = createDiv("Hiii", "red", "box main");
-        const body = document.querySelector('body');
-        body.appendChild(div);
-
-        const box = document.querySelector(".box");
-        box.textContent = "Hello";
-
-        const main = document.querySelector(".main");
-        main.innerText = "What are you doing";
-        */
-
-        // function addLanguage(langName){
-        //     const listItem = document.createElement('li');
-        //     listItem.appendChild(document.createTextNode(langName));
-        //     document.querySelector(".language").appendChild(listItem);
-        // }
-
-        // function addOptiLanguage(langName){
-        //     const li = document.createElement("li");
-        //     li.innerHTML = langName;
-
-        //     document.querySelector(".language").appendChild(li);
-        // }
-
-        // addLanguage("Java");
-        // addLanguage("C++");
-        // addLanguage("Python");
-        // addOptiLanguage("ruby");
-
-        // const ul = document.querySelector(".language");
-        // console.log(ul.firstElementChild);
-
-    </script>
 </body>
+<script>
+    let box = document.querySelectorAll('.box');
+    let grid = document.querySelector('.grid');
+
+    box.forEach((boxes) => {
+        boxes.addEventListener('mouseover', (e) => {
+            boxes.style.backgroundColor = '#eee';
+        });
+    
+        boxes.addEventListener('mouseout', (e) => {
+            boxes.style.backgroundColor = '';
+        });
+    });
+
+    grid.addEventListener('mouseover', (e) => {
+        grid.style.transform = "rotate(180deg)";
+        box.forEach((boxes) => {
+            boxes.style.backgroundColor = '#eee';
+            boxes.style.transform = "rotateX(180deg)";
+        })
+    });
+
+    grid.addEventListener('mouseout', (e) => {
+        grid.style.transform = "rotateX(0deg)";
+        box.forEach((boxes) => {
+            boxes.style.backgroundColor = '';
+            boxes.style.transform = "rotate(0deg)";
+        })
+    });
+
+</script>
 </html>

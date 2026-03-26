@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./studentForm.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+    </div>
+    <div class="main">
+        <form class="form">
+            <div class="input">
+                <label for="name">Enter Student Name</label>
+                <input type="text" id="name">
+            </div>
+
+            <div class="input">
+                <label for="cpp">Enter Marks of CPP</label>
+                <input type="text" id="cpp">
+            </div>
+
+            <div class="input">
+                <label for="Java">Enter Marks of JS</label>
+                <input type="text" id="Java">
+            </div>
+
+            <div class="input">
+                <label for="JavaScript">Enter Marks of Java</label>
+                <input type="text" id="JavaScript">
+            </div>
+
+            <div class="input">
+                <input type="submit" value="Display Details" id="submit">
+            </div>
+            <div class="alerts"></div>
+        </form>
+
+        
+        <div class="content">
+            <div class="details">
+                <p>Student name <span class="value" id="nm"></span></p>
+            </div>
+
+            <div class="details">
+                <p>Marks Gained in CPP <span class="value" id="m1"></span></p>
+            </div>
+
+            <div class="details">
+                <p>Marks Gained in JS <span class="value" id="m2"></span></p>
+            </div>
+
+            <div class="details">
+                <p>Marks Gained in Java <span class="value" id="m3"></span></p>
+            </div>
+
+            <div class="details reset"></div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Student Details</p>
+    </div>
+</body>
+    <script src="./studentForm.js"></script>
+</html>

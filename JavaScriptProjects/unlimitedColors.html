@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlimited Colors</title>
+</head>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .navbar{
+            background-color: #eee;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-bottom: solid 2px #aaa;
+        }
+
+        .navbar > a{
+            text-decoration: none;
+            border: 1px solid #212121;
+            min-width: 9rem;
+            text-align: center;
+            color: #212121;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: #cbc9c9;
+            font-size: 1.2rem;
+        }
+
+        .box{
+            background-color: #4C8CE4;
+            padding: 1rem;
+            margin: 0.5rem auto;
+            border-radius: 0.5rem;
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .button{
+            min-width: 5rem;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            border: solid 1px #212121;
+            background-color: #436bab;
+        }
+    </style>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Next Project</a>
+        </div>
+    </header>
+
+    <main>
+        <h1>Start should change the background Color Every Second</h1>
+        <div class="box">
+            <button id="start" class="button">Start</button>
+            <button id="stop" class="button">Stop</button>
+        </div>
+    </main>
+
+    <script>
+        let body = document.querySelector("body");
+        let start = document.querySelector('#start');
+        let stop = document.querySelector("#stop");
+
+        // let colors = ["#FFDE42", "#53CBF3", "#5478FF", "#111FA2", "#FE9EC7", "#F9F6C4", "#FFDBFD", "#C9BEFF", "#8494FF", "#C00707", "#FF4400", "#FFB33F", "#FFAA00", "#FFD786"];
+        // let index = 0;
+
+        function colorGenerator (){
+            let hex = "0123456789ABCDEF";
+            let color = '#';
+
+            for(let i=0; i<6; i++){
+                let randomColor = Math.floor(Math.random() * 16);
+                color += hex[randomColor];
+            }
+
+            return color;
+        }
+
+        let colorChanger = () => {
+            body.style.backgroundColor = colorGenerator();
+        };
+
+        let intervalId;
+
+        start.addEventListener('click', (event) => {
+            if(!intervalId){
+                intervalId = setInterval(colorChanger, 1000);
+            }
+        });
+
+        stop.addEventListener('click', (event) => {
+            clearInterval(intervalId);
+            intervalId = null;
+        });
+    </script>
+</body>
+</html>

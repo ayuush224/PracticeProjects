@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/ayuush224/PracticeProjects#readme",
   "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
     "express": "^5.2.1",
-    "nodemon": "^3.1.14"
+    "mongoose": "^9.3.3",
+    "nodemon": "^3.1.14",
+    "url": "^0.11.4"
   }
 }

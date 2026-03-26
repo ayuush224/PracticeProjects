@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Api request</title>
+</head>
+<style>
+    body{
+        background-color: #212121;
+    }
+    .card{
+        margin: 30vh auto;
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #FE9EC7;
+        width: 50%;
+        height: auto;
+        border: solid 2px #212121;
+    }
+    img{
+        height: 100%;
+        width: 50%;
+        border-radius: 50%;
+    }
+    .image{
+        height: 20vh;
+        border: 1px solid #212121;
+        width: 100%;
+        text-align: center;
+    }
+
+    .bio{
+        border-bottom: solid 1px #212121;
+        text-align: justify;
+        padding: 1rem;
+        background-color: #53CBF3;
+        color: #eee;
+    }
+
+    .followers{
+        width: 100%;
+        background-color: #5478FF;
+        text-align: center;
+        padding: 1rem 0px;
+        border-radius: 0rem 0rem 1rem 1rem;
+        color: #eee;
+    }
+</style>
+<body>
+    <div class="card">
+        <div class="image">
+            <img src="" alt="Hitesh Choudhary">
+        </div>
+
+        <div class="bio"></div>
+        <div class="followers"></div>
+    </div>    
+</body>
+<script>
+    let image = document.querySelector('img');
+    let followers = document.querySelector('.followers');
+    let bio = document.querySelector('.bio');
+
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary';
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", requestUrl);
+    
+    xhr.onload = function(){
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText);
+
+            console.log(this.getAllResponseHeaders());
+            console.log(this.response);
+            image.setAttribute("src", data.avatar_url);
+            followers.textContent = `Followers - ${data.followers}`;
+            bio.textContent = data.bio;
+        }
+    };
+    
+    xhr.addEventListener('progress', (event) => {
+        console.log(event.loaded);
+    });
+
+    xhr.send();
+</script>
+</html>

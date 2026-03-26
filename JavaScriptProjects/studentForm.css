@@ -1,0 +1,105 @@
+body{
+    margin : 0px;
+    background-color : #212121;
+    color : #eee;
+}
+.navbar{
+    background-color :#eee;
+    border-bottom : #aaa 4px solid;
+    display : flex;
+    flex-wrap : wrap;
+    padding : 0.5rem;
+    justify-content : center;
+    align-items : center;
+    gap : 0.5rem;
+}
+.navbar > a{
+    text-decoration : none;
+    color : #212121;
+    border : solid 1px #212121;
+    border-radius : 0.5rem;
+    min-width : 9rem;
+    padding : 0.5rem;
+    text-align : center;
+}
+
+.main{
+    margin : 2rem auto 3rem;
+    width : 50%;
+    text-align : center;
+    display : flex;
+    flex-direction : column;
+    border : 0.3rem solid #aaa;
+}
+
+.form{
+    display : flex;
+    flex-direction : column;
+    gap : 2rem;
+    padding : 2rem;
+    font-size : 1.3rem;
+}
+
+.box{
+    display : flex;
+    flex-direction : column;
+    gap : 2rem;
+}
+
+.footer{
+    background-color :#eee;
+    border-top : #aaa 4px solid;
+    gap : 0.5rem;
+    position : fixed;
+    bottom : 0px;
+    width : 100%;
+    color : #212121;
+    text-align : center;
+}
+
+.input{
+    border : 1px solid #aaa;
+    padding : 1rem;
+    text-align : center;
+}
+
+input{
+    border : 2px solid #aaa;
+    height : 1.5rem;
+    border-radius : 0.5rem;
+    text-align : center;
+}
+
+#submit{
+    text-align : center;
+    height : 2rem;
+    min-width : 6rem;
+    padding : 0.5rem;
+    background-color : black;
+    color : #eee;
+}
+
+.content{
+    display : flex;
+    flex-direction : column;
+    gap : 2rem;
+    padding : 2rem;
+    display : none;
+}
+
+.details{
+    border : solid 2px #eee;
+}
+
+span{
+    display : inline-block;
+    padding : 0.2rem;
+    background-color : #eee;
+    color : black;
+    border-radius : 0.5rem;
+}
+
+.alerts{
+    color : red;
+    font-size : 2rem;
+}

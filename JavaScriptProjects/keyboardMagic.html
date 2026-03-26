@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyBoard Magic</title>
+</head>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+            background-color: #212121;
+        }
+
+        .navbar{
+            background-color: #eee;
+            padding: 0.5rem;
+            display: flex;
+            gap: 0.8rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            border-bottom: solid 2px #aaa;
+        }
+
+        .navbar > a{
+            text-decoration: none;
+            border: 1px solid #212121;
+            min-width: 9rem;
+            text-align: center;
+            color: #212121;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: #cbc9c9;
+            font-size: 1.2rem;
+        }
+
+        .insert{
+            color: #eee;
+            margin: 40vh auto;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+        }
+
+        table{
+            border: 2px solid #eee;
+            border-spacing: 0.45rem;
+            text-align: center;
+        }
+
+        th , td{
+            border: 2px solid #eee;
+            padding: 0.3rem;
+        }
+    </style>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="#">Home</a>
+            <a href="#">Next Project</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="insert">
+            Press the key and see magic
+        </div>
+    </main>
+
+    <script>
+        let insert = document.querySelector('.insert');
+        window.addEventListener('keydown', (event) => {
+            insert.innerHTML = `
+            <table>
+                <tr>
+                    <th>Key</th>
+                    <th>KeyCode</th>
+                    <th>Code</th>
+                </tr>
+
+                <tr>
+                    <td>${event.key === ' ' ? 'Space' : event.key}</td>
+                    <td>${event.keyCode}</td>
+                    <td>${event.code}</td>
+                </tr>
+            </table>
+            `;
+        })
+    </script>
+</body>
+</html>
