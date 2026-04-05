@@ -6,92 +6,31 @@
     <title>Document</title>
 </head>
 <style>
-
     body{
         background-color: #212121;
     }
-    .grid{
-        display: grid;
-        background-color: #aaa;
-        width: 60vw;
-        margin: 20rem auto;
-        row-gap:  0.5rem;
-        padding: 0.5rem;
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns: repeat(5, 1fr);
-        border-radius: 1rem;
-        transition: all 2s linear 0.0s;
-    }
-    
-    .box{
-        height: 5rem;
-        width: 100%;
-        background-color: #212121;
-        border-radius:1rem 6rem;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        transition: all 1s linear 0.0s;
-    }
-
-    .box:hover{
-        background-color: #eee;
-        /* transform: translate(20rem);
-        transform: scale(2);
-        transform: rotateX(20deg); */
-    }
-
-    #six{
-        height: 100%;
-        width: 99%;
-        grid-area: 2 / 1 / 4 / 3;
-    }
 </style>
+
 <body>
-    <div class="grid">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box" id="six"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-    </div>
-</body>
+    <button>Click</button>
+
 <script>
-    let box = document.querySelectorAll('.box');
-    let grid = document.querySelector('.grid');
+    const button = document.querySelector("button");
 
-    box.forEach((boxes) => {
-        boxes.addEventListener('mouseover', (e) => {
-            boxes.style.backgroundColor = '#eee';
-        });
-    
-        boxes.addEventListener('mouseout', (e) => {
-            boxes.style.backgroundColor = '';
-        });
-    });
+    class React{
+        constructor(){
+            this.library = "react";
+            this.server = "localhost";
+            
+            document.querySelector("button").addEventListener("click", this.handleClick);
+        }
+        
+        handleClick(){
+            console.log(this);
+        }
+    }
 
-    grid.addEventListener('mouseover', (e) => {
-        grid.style.transform = "rotate(180deg)";
-        box.forEach((boxes) => {
-            boxes.style.backgroundColor = '#eee';
-            boxes.style.transform = "rotateX(180deg)";
-        })
-    });
-
-    grid.addEventListener('mouseout', (e) => {
-        grid.style.transform = "rotateX(0deg)";
-        box.forEach((boxes) => {
-            boxes.style.backgroundColor = '';
-            boxes.style.transform = "rotate(0deg)";
-        })
-    });
-
+    const app = new React();
 </script>
+</body>
 </html>

@@ -28,9 +28,9 @@ handleCreateUser} = require('../controllers/user');
 //     }
 // });
 
-router.get('/', handleGetAllUser);
-
-router.post("/" , handleCreateUser);
+router.route("/")
+.get(handleGetAllUser)
+.post(handleCreateUser);
 
 router.route('/:id')
 .get(handleGetUserById)

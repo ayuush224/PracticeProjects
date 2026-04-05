@@ -56,7 +56,7 @@ async function handleCreateUser(req, res){
         return res.status(400).json({msg : "All fields are required to fill.."});
     }
 
-    await User.create({
+    const result = await User.create({
         firstName : body.firstName,
         lastName : body.lastName ? body.lastName : "",
         email : body.email,
@@ -64,7 +64,7 @@ async function handleCreateUser(req, res){
         gender : body.gender
     });
     
-    return res.status(201).json({ msg : "User created successfully"});
+    return res.status(201).json({ msg : "User created successfully", id : result._id});
 }
 
 function valid(body){

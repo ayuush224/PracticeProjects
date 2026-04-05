@@ -3,6 +3,8 @@ const userRouter = require('./routes/user');
 const {connectMongoDb} = require('./connection');
 const {logReqRes} = require('./middlewares');
 
+const PORT = 8000;
+
 // mongoose.connect('mongodb://127.0.0.1:27017/youtube-app')
 // .then(() => console.log("Mongo DB Connected"))
 // .catch((err) => console.log("Error in DB Connection", err));
@@ -20,8 +22,8 @@ app.use(express.json());
 
 app.use(logReqRes('log.txt'));
 
-app.use('/users', userRouter);
+app.use('/api/users', userRouter);
 
-app.listen(8000, () => {
+app.listen(PORT, () => {
     console.log("Server is listening");
 });

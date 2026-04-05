@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .url{
+            display: flex;
+            flex-direction: column;
+            width: 50vw;
+        }
+
+        .url-row{
+            display: grid;
+            grid-template-columns: 4rem 8rem 22rem 0.2fr;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+
+        .url-head{
+            font-size: 1.4rem;
+            font-weight: bolder;
+            margin: 1rem 0px;   
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>URL Shortner</h1>
+<div>
+    <form action="/" method="POST">
+        <label>Enter Your original URL</label>
+        <input type="text" placeholder="https://example.com" name="url" id="redirectURL">
+        <button type="submit" id="generate">Generate</button>
+    </form>
+</div>
+
+<div class="result"></div>
+
+<div class="urls">
+    <div class="url-head url-row">
+        <span>S.No</span>
+        <span>ShortId</span>
+        <span>Redirect Url</span>
+        <span>Clicks</span>
+    </div>
+</div>
+
+<script>
+let urls = document.querySelector(".urls");
+let result = document.querySelector(".result");
+let redirectURL = document.querySelector("#redirectURL");
+
+let generate = document.querySelector("#generate");
+
+generate.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    let userUrl = redirectURL.value;
+    console.log(userUrl);
+    displayGeneratedShortId(userUrl);
+});
+
+async function displayGeneratedShortId(userUrl){
+
+    try{
+        let response = await fetch("http://127.0.0.1:3000/" , {
+            method : "post",
+            headers : {
+                "content-type" : "application/json",
+            },
+            credentials : 'include',
+            body : JSON.stringify({url : userUrl}),
+        });
+    
+        response = await response.json();
+        result.textContent = `Generated Url Short Id : ${response.shortId}`;
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+async function getData(){
+    try{
+        const url = "http://127.0.0.1:3000/url/api";
+        let response = await fetch(url, {
+            method : "get",
+            credentials : 'include',
+        });
+        response = await response.json();
+        return response;
+    }
+    catch(err){
+        console.log(err);
+        return [];
+    }
+}
+
+async function insertData(){
+    try{
+        const dbData = await getData();
+        
+        
+        dbData.forEach((element, index) => {
+            const row = document.createElement("div");
+            row.className = "url-row";
+    
+            row.innerHTML = `
+                <span>${index + 1}</span>
+                <span>${element.shortId}</span>
+                <span>${element.redirectURL ? element.redirectURL : element.redirectUrl}</span>
+                <span>${element.visitHistory.length ? element.visitHistory.length : 0}</span>
+            `;
+            urls.appendChild(row);
+        });
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+
+insertData();
+</script>
+</body>
+</html>
