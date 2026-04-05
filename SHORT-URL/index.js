@@ -9,11 +9,11 @@ const urlRouter = require('./routes/url');
 const userRouter = require("./routes/user");
 const staticRoute = require('./routes/staticRouter');
 
-const {restrictToLoggedUserOnly} = require("./middleware/auth");
+const {checkAuthentication, restrictTo} = require("./middleware/auth");
 
 connectMogoDB('mongodb://127.0.0.1:27017/urls')
 .then(() => console.log("MongoDB Connected"))
-.catch((err) => console.log("Didn't connected to the database"));
+.catch((err) => console.log("Didn't connected to the database" + err));
 
 const app = express();
 
@@ -22,10 +22,12 @@ app.use(cookieParser());
 
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
-
-app.use('/url', restrictToLoggedUserOnly, urlRouter);
 app.use('/user', userRouter);
-app.use('/' ,restrictToLoggedUserOnly ,staticRoute);
+
+app.use(checkAuthentication);
+
+app.use('/url', checkAuthentication , restrictTo(["ADMIN", "USER"]) , urlRouter);
+app.use('/' ,checkAuthentication , restrictTo(["USER", "ADMIN"]), staticRoute);
 
 app.get('/view/:shortId' , async (req, res) => {
     const shortId = req.params.shortId;
@@ -48,7 +50,7 @@ app.get('/view/:shortId' , async (req, res) => {
     res.redirect(entry.redirectURL);
 });
 
-const PORT = 3000;
+const PORT = 3001;
 app.listen(PORT, () => {
     console.log("Server is listening");
 });

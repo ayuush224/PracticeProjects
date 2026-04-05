@@ -70,7 +70,7 @@ generate.addEventListener("click", (e) => {
 async function displayGeneratedShortId(userUrl){
 
     try{
-        let response = await fetch("http://127.0.0.1:3000/" , {
+        let response = await fetch("http://127.0.0.1:3001/" , {
             method : "post",
             headers : {
                 "content-type" : "application/json",
@@ -89,11 +89,12 @@ async function displayGeneratedShortId(userUrl){
 
 async function getData(){
     try{
-        const url = "http://127.0.0.1:3000/url/api";
+        const url = "http://127.0.0.1:3001/url/api";
         let response = await fetch(url, {
             method : "get",
             credentials : 'include',
         });
+
         response = await response.json();
         return response;
     }

@@ -10,7 +10,8 @@ async function handleCreateUser(req, res){
         const data = await USER.create({
             name : body.name,
             email : body.email,
-            password : body.password
+            password : body.password,
+            role : body.role,
         });
 
         return res.redirect('/');
