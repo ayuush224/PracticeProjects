@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <style>
+        body{
+            background-color: #4C8CE4;
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h1{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .heading{
+            background-color: #406093;
+            text-align: center;
+            padding: 1rem;
+            color: #FFF799;
+        }
+
+        .addTask{
+            display: flex;
+            width: 20vw;
+            margin: 4rem auto;
+            border-radius: 1rem;
+            background-color: #FFF799;
+            padding: 0.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 0px;
+        }
+
+        #input{
+            width: 70%;
+            height: 2rem;
+            border-radius:0.5rem 0 0 0.5rem;
+            text-align: center;
+            border: 0px;
+        }
+
+        #input:focus{
+            outline: none;
+        }
+
+        #addTask{
+            width: 25%;
+            height: 2.1rem;
+            border-radius:0 0.5rem 0.5rem 0;
+            background-color: #4C8CE4;
+            color: #FFF799;
+            font-size: larger;
+            border: 0px;
+        }
+        .result{
+            margin: 20px auto;
+            width: 20vw;
+            background-color: #F7F0F0;
+            padding: 0.5rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            visibility: hidden;
+        }
+
+        .taskContainer{
+            width: 40vw;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin: 2rem auto;
+            background-color: #FFF799;
+            border-radius: 1rem;
+            padding: 2rem;
+            gap: 0.5rem;
+        }
+
+        .task{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+            background-color:#8494FF;
+            padding: 0.5rem;
+            gap: 0.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .remove{
+            background-color:#c90d0d;
+            height: 2rem;
+            width: 20%;
+            border: 0px;
+            border-radius: 0.5rem;
+            transition: all 0.3 linear;
+        }
+
+        .completed{
+            background-color: #52e010;
+            height: 2rem;
+            width: 20%;
+            margin-left: auto;
+            border: 0px;
+            border-radius: 0.5rem;
+            transition: all 0.3s linear;
+        }
+
+        .remove,.completed{
+            transition: all ease-in-out;
+        }
+
+        .remove:hover{
+            transform: scale(1.1);
+        }
+        .completed:hover{
+            transform: scale(1.1);
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="heading">
+            <h1>To Do List App</h1>
+        </div>
+    </header>
+
+    <main>
+        <form action="">
+            <div class="addTask">
+                <input type="text" placeholder="Enter Task" name="input" id="input">
+                <button id="addTask">Add</button>
+            </div>
+        </form>
+        <div class="result"></div>
+        <div class="taskContainer"></div>
+    </main>
+
+    <footer>
+        
+    </footer>
+</body>
+<script>
+    let input = document.querySelector("#input");
+    let addTask = document.querySelector("#addTask");
+    let result = document.querySelector(".result");
+    let taskContainer = document.querySelector(".taskContainer");
+
+    addTask.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let value = input.value;
+        input.value = "";
+        result.textContent = "";
+
+        if(!validTask(value)){
+            displayResult("Please Enter A valid Task");
+        }
+
+        createTask(value);
+        displayResult("Task Created Successfully");
+    });
+
+    function createTask(value){
+        let task = document.createElement("div");
+        task.setAttribute("class" , "task");
+
+        let text = document.createElement("p");
+        text.textContent = value;
+        task.appendChild(text);
+
+        
+        let remove = document.createElement("button");
+        remove.setAttribute("class", "remove");
+        remove.textContent = "Delete";
+        
+        let complete = document.createElement("button");
+        complete.setAttribute("class", "completed");
+        complete.textContent = "Complete";
+        
+        task.appendChild(complete);
+        task.appendChild(remove);
+        setDeleteAndCompleteButton(remove, complete);
+
+        taskContainer.appendChild(task);
+    }
+
+    function setDeleteAndCompleteButton(remove, complete){
+        remove.addEventListener("click", (e) => {
+            let task = e.target.parentElement;
+            taskContainer.removeChild(task);
+            displayResult("Task removed");
+        });
+
+        complete.addEventListener("click", (e) => {
+            let task = e.target.parentElement;
+            if(!task.classList.contains("completed")){
+                task.style.backgroundColor = "#A8DF8E";
+                displayResult("Task Completed");
+            }
+        })
+    }
+
+    function validTask(value){
+        if(!value || value.trim() === ""){
+            return false;
+        }
+
+        return true;
+    }
+
+    function displayResult(value){
+        result.style.visibility = "visible";
+        result.textContent = value;
+    }
+
+    setInterval(() => {
+        result.style.visibility = "hidden";
+    }, 10000);
+</script>
+</html>
