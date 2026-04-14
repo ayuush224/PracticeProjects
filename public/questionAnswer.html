@@ -12,7 +12,7 @@
         }
 
         body{
-            background-color: #212121;
+            background-color: #F1FF5E;
         }
 
         .heading{
@@ -31,7 +31,7 @@
             width: 7rem;
             border-radius: 0.5rem;
             padding: 0.5rem;
-            border: #212121 2px solid;
+            border: #eee 2px solid;
             text-align: center;
             transition: all 0.4s linear;
         }
@@ -115,7 +115,7 @@
             display: none;
         }
 
-        .view{
+        .view, .delete{
             height:2rem;
             background-color: #212121;
             border-radius: 0.5rem;
@@ -126,6 +126,10 @@
             margin-top: 10px;
         }
 
+        .delete{
+            background-color: red;
+        }
+
         .top:hover{
             transform: scale(1.2);
             background-color: #F1FF5E;
@@ -134,6 +138,13 @@
 
         .input:focus{
             outline: none;
+        }
+
+        .features{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
         }
         </style>
 </head>
@@ -172,10 +183,12 @@
 
             if(!isValidQuestionAnswer()){
                 alert("Please Enter valid question and answer!");
+                return;
             }
             if(count == 0){
                 questionAnswer.style.padding = "2rem";
             }
+            count++;
 
             let one = document.createElement("div");
             one.setAttribute("class", "one");
@@ -191,21 +204,32 @@
             question.value = "";
             answer.value = "";
 
+            let features = document.createElement("div");
+            features.setAttribute("class", "features");
+
             let viewButton = document.createElement("div");
             viewButton.setAttribute("class", "view");
             viewButton.textContent = "view Answer";
             enableShowButton(viewButton);
             
+            let deleteButton = document.createElement("div");
+            deleteButton.setAttribute("class", "delete");
+            deleteButton.textContent = "Delete";
+            enableDeleteButton(deleteButton);
+            
+            features.appendChild(viewButton);
+            features.appendChild(deleteButton);
+
             one.appendChild(qn);
             one.appendChild(ans);
-            one.appendChild(viewButton);
+            one.appendChild(features);
 
             questionAnswer.appendChild(one);
         });
 
         function enableShowButton(element){
             element.addEventListener("click", (e) => {
-                let answer = e.target.previousElementSibling;
+                let answer = e.target.parentElement.previousElementSibling;
                 if(answer.style.display === "block"){
                     answer.style.display = "none";
                     element.textContent = "view Answer";
@@ -227,6 +251,17 @@
 
             return true;
         }
+
+        function enableDeleteButton(element){
+            element.addEventListener("click", (event) => {
+                let one = event.target.parentElement.parentElement;
+                questionAnswer.removeChild(one);
+                count--;
+                if(count == 0){
+                    questionAnswer.style.padding = "0px";
+                }
+            })
+        };
     </script>
 </body>
 </html>
